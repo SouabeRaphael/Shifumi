@@ -1,13 +1,16 @@
 
   // Drag and Drop
 function dragCard() {
-  const card = $(".card");
+  const card = $(".img-card");
+  var choice;
+  card.mousedown(function(){
+	choice = $(this).html();
+  })
   card.draggable();
   $(".game-area").droppable({
     drop: function (event, ui) {
-      // Change le texte du block
-      $(this).hide();
-	  // ui.draggable correspond à l'objet que l'on bouge
+      $(this).css('background', 'red');
+	  console.log(choice);
     //   $(this).css({ background: "green" });
     },
   });
