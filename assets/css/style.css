@@ -9,5 +9,7 @@
     background-color: grey;
 }
 .game-area {
+    position: relative;
     margin-top: 80px;
+    z-index: -1;
 }
