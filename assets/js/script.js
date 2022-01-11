@@ -1,14 +1,16 @@
-$( function() {
-	// Drag and Drop
-	$( function() {
-		$( "#draggable" ).draggable();
-		$( "#droppable" ).droppable({
-		  	drop: function( event, ui ) {
-				$( this )
-				.addClass( "ui-state-highlight" )
-				.find( "p" )
-				.text() = $( "#draggable" ).text();
-		  	}
-		});
-	});
+function dragCard() {
+  let card = $(".card");
+  card.draggable();
+  $(".game-area").droppable({
+    drop: function (event, ui) {
+      // Change le texte du block
+      $(this).hide();
+    //   $(this).css({ background: "green" });
+    },
+  });
+}
+
+$(function () {
+  dragCard();
 });
+
