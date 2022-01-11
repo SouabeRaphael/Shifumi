@@ -9,13 +9,15 @@ function dragCard() {
   card.draggable();
   $(".game-area").droppable({
     drop: function (event, ui) {
-      // Change le texte du block
       $(this).css('background', 'red');
 	  console.log(choice);
     //   $(this).css({ background: "green" });
     },
   });
 }
+
+
+// on execute les fonctions quand le DOM est chargé
 
 $(function () {
   dragCard();
