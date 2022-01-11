@@ -23,7 +23,7 @@
   .content-custom {
     width: 100%;
     height: 100%;
-    margin-top: 50px;
+    margin-top: 80px;
   }
   
   .content-wrapper{
@@ -69,7 +69,7 @@
     padding: 30px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   
   .img-vs{
