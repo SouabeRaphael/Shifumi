@@ -1,3 +1,5 @@
+
+  // Drag and Drop
 function dragCard() {
   let card = $(".card");
   card.draggable();
@@ -13,4 +15,3 @@ function dragCard() {
 $(function () {
   dragCard();
 });
-
