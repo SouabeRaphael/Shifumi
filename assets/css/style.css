@@ -1,17 +1,3 @@
-#draggable {
-    width: 100px;
-    height: 100px;
-    padding: 0.5em;
-    float: left;
-    margin: 10px 10px 10px 0;
-}
-#droppable {
-    width: 150px;
-    height: 150px;
-    padding: 0.5em;
-    float: left;
-    margin: 10px;
-}
 .card {
     height: 200px;
     width: 125px;
@@ -21,4 +7,7 @@
     height: 500px;
     width: 500px;
     background-color: grey;
+}
+.game-area {
+    margin-top: 80px;
 }
