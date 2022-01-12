@@ -83,14 +83,13 @@
     margin: 15px;
   }
   
-.img-card {
-  position: relative;
-  top: 0px;
-  left: 0px;
-}
+  .img-card:hover{
+    transform: translateY(-20px);
+    transition: transform 200ms ease-in-out;
+  }
 
-.img-card:hover{
-  transform: translateY(-20px);
-  transition: transform 200ms ease-in-out;
-}
+  /* drag and drop */
 
+  .hovered {
+    background: #f4f4f4;
+}
