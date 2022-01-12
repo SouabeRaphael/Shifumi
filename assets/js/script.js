@@ -71,20 +71,12 @@ function dragNdrop() {
       });
     });
     yourChoice = $(this).attr("value");
-    compareChoices();
+    setTimeout(function(){compareChoices()}, 1000);
   }
 }
-// function play() {
-//   let card = $(".item");
-//   console.log(card);
-//   card.click(function () {
-//     let value = $(this).attr("value");
-//     console.log(value);
-//   });
-// }
+
 // on execute les fonctions quand le DOM est chargé
 
 $(function () {
   dragNdrop();
-  // play()
 });
