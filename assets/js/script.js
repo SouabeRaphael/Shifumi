@@ -1,87 +1,63 @@
-// ATTENTION : 1 > Pierre, 2 > Feuille, 3 > Ciseaux
+// --------------------------------------------------------------------------------------------
+// ---------------------------Fonction Drag and Drop ------------------------------------------
+// --------------------------------------------------------------------------------------------
+function dragNdrop() {
+  item = $(".item");
+  item.on("dragstart", dragStart);
+  item.on("dragend", dragEnd);
+  
+  // dragStart: lorsque qu'on "prend" la carte
+  function dragStart() {
+    $(this).addClass('active');
+    // console.log("start");
+  }
 
-//================================== Var definitions. ======================================
-let user     = "";
-let computer = "";
-let lastPlay = "";
-let lostTo   = "";
-let reverse  = "";
-let nb;
-let asWon = false, asLost = false;
-let won = 0, lost = 0, equal = 0;
+  //  dragEnd: lorsque qu'on "relache" la carte
+  function dragEnd() {
+    $(this).removeClass('active');
+    // console.log("end");
+  }
 
-function counter(string)
-{
-    if (string=="Pierre") reverse = "Feuille";
-    else if (string=="Feuille") reverse = "Ciseaux";
-    else reverse = "Pierre";
-    return reverse;
+  $('.first-card').each(function(){
+    $(this).on('dragover', dragOver);
+    // $(this).on('dragenter', dragEnter);
+    // $(this).on('dragleave', dragLeave);
+    $(this).on('drop', drop);
+})
+  function dragOver(e) {
+    e.preventDefault();
+  }
+
+  // function dragEnter(e) {
+  // }
+
+  // function dragLeave(){
+  // }
+
+  // au moment du relachement 
+  function drop(){
+    let item = $('.active')
+    let itemValue = item.attr('value')
+    // console.log('drop');
+    $(this).append(item)
+    $(this).attr('value', itemValue)
+    console.log($(this).attr('value'));
+  }
 }
 
-function compute()
-{
-    nb = Math.floor(Math.random()*3) + 1;
-    if (asWon && nb>1) {
-        computer = counter(lastPlay);
-        alert("Che!");
-    }
-    if (asLost && nb>1) {
-        computer = counter(lostTo);
-        alert("Che!");
-    }
-    else {
-        if (nb==1)      computer = "Pierre";
-        else if (nb==2) computer = "Feuille";
-        else            computer = "Ciseaux";
-    }
-    asWon  = false;
-    asLost = false;
-}
-//=================================== Get user input. ======================================
-function res(form,val)
-{
-	if (user != "")
-		return;
-	form.texte.value = val;
-	user = val;
-}
-//================================= Test for validity. =====================================
-function testing(form)
-{
-	if (user == "" || computer == "")
-		return;
-	if (user == computer)
-	{
-		alert("égalité !");
-		equal += 1;
-		calcScore(form);
-	}
-    else if ((user=="Pierre" && computer=="Ciseaux")||(user=="Feuille" && computer=="Pierre")||(user=="Ciseaux" && computer=="Feuille"))
-	{
-		alert("Gagné !");
-		won += 1;
-        asWon = true;
-		calcScore(form);
-	}
-	else
-	{
-		alert(`Perdu ! L'ordi a utilisé ${computer}.`);
-		lost += 1;
-        lostTo = computer;
-        asLost = true;
-		calcScore(form);
-	}
-}
-//=================================== Sum up score. ========================================
-function calcScore(form)
-{
-	document.getElementById("score").innerHTML = `Gagné : ${won} | Perdu : ${lost} | Egalité : ${equal}   |   ${computer}`
-}
-//====================================== Reset. ============================================
-function raz(form)
-{
-	form.texte.value = "";
-    lastPlay = user;
-	user = "";
-	computer = "";
-}
+// function play() {
+//   let card = $(".item");
+//   console.log(card);
+//   card.click(function () {
+//     let value = $(this).attr("value");
+//     console.log(value);
+//   });
+// }
+
+  // on execute les fonctions quand le DOM est chargé
+  
+
+$(function () {
+  dragNdrop();
+  // play()
+});

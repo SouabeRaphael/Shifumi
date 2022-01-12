@@ -1,40 +1,49 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>jQuery UI Droppable - Default functionality</title>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Training jQuery</title>
+    <title>ShiFuMi</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- On appelle jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <!-- On appelle le fichier script.js -->
-    <script src="assets/js/script.js"></script>
-
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-    <script src="assets/js/script.js"></script>
+    <!-- jQuery UI -->
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script> -->
+    <!-- js -->
+    <script src="./assets/js/script.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="card card-rock">Pierre</div>
-                <div class="card card-paper">Feuille</div>
-                <div class="card card-scissors">ciseaux</div>
+    <div class="container-fluid content-custom">
+        <div class="content-wrapper">
+            <div class="col-12">
+                <div class="col-12 content-area">
+                    <div class="col-12 col-lg-6 game-area">
+                        <div class="first-card"></div>
+                        <img class="img-vs" src="./assets/img/vs.svg">
+                        <div class="seconde-card"></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="content-card">
+                        <div class="item card-scissors" value="0">
+                            <img class="img-card" src="./assets/img/Fichier 1.svg">
+                        </div>
+                        <div class="item card-paper" value="1">
+                            <img class="img-card" src="./assets/img/Fichier 3.svg">
+                        </div>
+                        <div class="item card-rock" value="2">
+                            <img class="img-card" src="./assets/img/Fichier 4.svg">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col">
-                <div class="game-area">Container</div>
-            </div>
-        </div> 
+        </div>
     </div>
 </body>
 </html>
