@@ -74,7 +74,7 @@ function dragNdrop() {
     setTimeout(function(){compareChoices()}, 1000);
   }
 }
-
+console.log('test');
 // on execute les fonctions quand le DOM est chargé
 
 $(function () {
