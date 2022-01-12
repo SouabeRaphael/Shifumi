@@ -138,3 +138,10 @@ body {
 .hovered {
   background: #f4f4f4;
 }
+
+.count,
+.scoreUser,
+.message,
+.scoreAI{
+  font-size: 1.5rem;
+}
