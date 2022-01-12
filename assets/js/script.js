@@ -5,7 +5,7 @@ function dragNdrop() {
   item = $(".item");
   item.on("dragstart", dragStart);
   item.on("dragend", dragEnd);
-
+  
   // dragStart: lorsque qu'on "prend" la carte
   function dragStart() {
     $(this).addClass('active');
@@ -18,7 +18,6 @@ function dragNdrop() {
     // console.log("end");
   }
 
-  // boucle qui nique ta grosse daronne
   $('.first-card').each(function(){
     $(this).on('dragover', dragOver);
     // $(this).on('dragenter', dragEnter);
@@ -55,7 +54,8 @@ function dragNdrop() {
 //   });
 // }
 
-// on execute les fonctions quand le DOM est chargé
+  // on execute les fonctions quand le DOM est chargé
+  
 
 $(function () {
   dragNdrop();
