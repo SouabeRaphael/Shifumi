@@ -5,6 +5,18 @@ let yourChoice;
 let aiChoice;
 function dragNdrop() {
   item = $(".item");
+  item.mouseenter(function () {
+    $(this).css({
+      transform: "translateY(-20px)",
+      transition: "transform 200ms ease-in-out",
+    });
+  });
+  item.mouseleave(function () {
+    $(this).css({
+      transform: "translateY(0px)",
+      transition: "transform 200ms ease-in-out",
+    });
+  });
   item.on("dragstart", dragStart);
   item.on("dragend", dragEnd);
 
@@ -50,6 +62,14 @@ function dragNdrop() {
     // console.log('drop');
     $(this).append(item);
     $(this).attr("value", itemValue);
+    $(".item").off("mouseenter");
+    $(".item").off("mouseleave");
+    item.mouseleave(function () {
+      $(this).css({
+        transform: "translateY(0px)",
+        transition: "transform 200ms ease-in-out",
+      });
+    });
     yourChoice = $(this).attr("value");
     compareChoices();
   }
