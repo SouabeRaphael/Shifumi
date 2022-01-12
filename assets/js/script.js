@@ -1,50 +1,59 @@
 // --------------------------------------------------------------------------------------------
 // ---------------------------Fonction Drag and Drop ------------------------------------------
 // --------------------------------------------------------------------------------------------
+let yourChoice;
+let aiChoice;
 function dragNdrop() {
   item = $(".item");
   item.on("dragstart", dragStart);
   item.on("dragend", dragEnd);
-  
+
   // dragStart: lorsque qu'on "prend" la carte
   function dragStart() {
-    $(this).addClass('active');
-    // console.log("start");
+    $(this).addClass("active");
   }
-
   //  dragEnd: lorsque qu'on "relache" la carte
   function dragEnd() {
-    $(this).removeClass('active');
-    // console.log("end");
+    $(this).removeClass("active");
   }
-
-  $('.first-card').each(function(){
-    $(this).on('dragover', dragOver);
-    // $(this).on('dragenter', dragEnter);
-    // $(this).on('dragleave', dragLeave);
-    $(this).on('drop', drop);
-})
+  $(".first-card").each(function () {
+    $(this).on("dragover", dragOver);
+    $(this).on("drop", drop);
+  });
   function dragOver(e) {
     e.preventDefault();
   }
-
-  // function dragEnter(e) {
-  // }
-
-  // function dragLeave(){
-  // }
-
-  // au moment du relachement 
-  function drop(){
-    let item = $('.active')
-    let itemValue = item.attr('value')
+  // Génère une valeur aléatoire pour l'ia et compare les choix pour déterminer le gagnant
+  function compareChoices() {
+    aiChoice = parseInt(Math.random() * 3);
+    console.log(aiChoice);
+    console.log(yourChoice);
+    if (aiChoice == yourChoice) {
+      console.log("égalité");
+    } else if (
+      (aiChoice == 0 && yourChoice == 2) ||
+      (aiChoice == 1 && yourChoice == 0) ||
+      (aiChoice == 2 && yourChoice == 1)
+    ) {
+      console.log("gagné");
+    } else {
+      console.log("perdu");
+    }
+    $(".second-card").html(
+      `<img class="img-card item" src="./assets/img/` + aiChoice + `.svg">`
+    );
+  }
+  // au moment du relachement
+  function drop() {
+    let item = $(".active");
+    let itemValue = item.attr("value");
     // console.log('drop');
-    $(this).append(item)
-    $(this).attr('value', itemValue)
-    console.log($(this).attr('value'));
+    $(this).append(item);
+    $(this).attr("value", itemValue);
+    yourChoice = $(this).attr("value");
+    compareChoices();
   }
 }
-
 // function play() {
 //   let card = $(".item");
 //   console.log(card);
@@ -53,9 +62,7 @@ function dragNdrop() {
 //     console.log(value);
 //   });
 // }
-
-  // on execute les fonctions quand le DOM est chargé
-  
+// on execute les fonctions quand le DOM est chargé
 
 $(function () {
   dragNdrop();
